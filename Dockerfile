@@ -8,12 +8,12 @@ RUN apt-get update -qq && apt-get install -y ca-certificates wget && apt-get cle
 RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
 
 RUN apt-get update -qq && apt-get install -y nodejs  \
-    ca-certificates \
-    libxml2-dev \
-    libxslt-dev \
-    tzdata \
-    libmariadb-dev \
-    nodejs
+	ca-certificates \
+	libxml2-dev \
+	libxslt-dev \
+	tzdata \
+	libmariadb-dev \
+	nodejs
 
 RUN gem install bundler && bundler config --global frozen 1
 
@@ -36,6 +36,9 @@ RUN yarn install --production
 
 COPY Gemfile Gemfile.lock ./
 
+RUN gem install nokogiri -v '1.10.9'
+# ! bundle install 이전에 설치해야 되는 내용 설치
+
 RUN bundle install --without development test
 # ? 배포용 gem 설치
 
@@ -57,7 +60,7 @@ RUN nginx -t
 RUN service nginx restart
 
 
-CMD ["bundle", "exec", "unicorn_rails", "-E", "production", "-c", "./config/unicorn.rb", "-d"]
+CMD ["bundle", "exec", "unicorn_rails", "-E", "production", "-c", "./config/unicorn.rb", "-D"]
 
 # CMD ["bundle", "exec", "unicorn_rails", "-c", "./config/unicorn.rb", "-D"]
 # ! Daemonize

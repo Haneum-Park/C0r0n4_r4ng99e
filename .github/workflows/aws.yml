@@ -30,6 +30,33 @@ on:
 name: Amazon ECS로 배포
 
 jobs:
+  build:
+    name: 빌드 시작
+    runs-on: ubuntu-latest
+    steps:
+      - name: 소스코드 가져오기
+        uses: actions/checkout@v2
+
+      - name: 보안파일 master.key 생성
+      id: create-masterkey
+      run: |
+        echo "${{ secrets.RAILS_MASTER_KEY }}" > ./config/master.key
+        echo $(pwd)
+        ls -la ./config/master.key
+
+      - name: 배포용 패키지 제작
+        run: zip deploy.zip -9 -r --exclude='*.git*' --exclude='*.DS_Store*' --exclude='test/*' --exclude='node_modules/*' --exclude='tmp/*' ./
+
+      - name: 배포 시작
+      uses: einaregilsson/beanstalk-deploy@v9
+      with:
+        aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        application_name: C0r0N4r4n99e
+        environment_name: C0r0n4r4n99e-env
+        brtdion_lsnrl: ${{ github.sha }}
+        region: ap-northeast-2
+        deployment_package: deploy.zip
   deploy:
     name: 배포
     runs-on: ubuntu-latest
