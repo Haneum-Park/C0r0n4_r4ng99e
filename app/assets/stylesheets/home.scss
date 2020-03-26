@@ -2,23 +2,59 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.wrapper {
-    display: flex;
+h6 { color: #dc3545; }
+
+.wrapper { display: flex; }
+
+.mt-6 { margin-top: 4rem; }
+
+.mt-7 { margin-top: 5rem; }
+
+.pointer { cursor: pointer; }
+
+.collapse-divider { border-top: 1px solid #bdbdbd; }
+
+caption { caption-side: top; }
+
+caption.caption-side-bottom { caption-side: bottom; }
+
+/* Navbar */
+nav.navbar-bg { background-color: rgba(86, 61, 124, 1); }
+
+nav.navbar-bg.nav-top-fade-in {
+    background-color: rgba(86, 61, 124, 0);
+    transition: background-color 0.5s;
+
+    .navbar-toggler.border.border-light { border-color: rgba(86, 61, 124, 1) !important; }
+
+    a:hover, a:hover h6, a:hover i {
+        background-color: rgba(86, 61, 124, 1) !important;
+        color: rgba(255, 255, 255, 1) !important; }
+
+    h1, a, h6, i { color: rgba(86, 61, 124, 1) !important; }
 }
 
-.mt-6 {
-    margin-top: 4rem;
+nav.navbar-bg.nav-top-fade-out {
+    background-color: rgba(86, 61, 124, 1);
+    transition: background-color 0.5s; }
+
+.navbar-light .navbar-toggler {
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s; }
+
+.navbar-light .navbar-toggler:hover,
+.navbar-light .navbar-toggler:active,
+.navbar-light .navbar-toggler:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0);
+    transition: background-color 0.3s; }
+
+#navbarMenu {
+    h6, i {
+        color: rgba(233, 223, 223, 0.973);
+        line-height: 1.5; }
 }
 
-.pointer {
-    cursor: pointer;
-}
-
-.collapse-divider {
-    border-top: 1px solid #bdbdbd;
-}
-
-/* Side Bar */
 h6 {
     font-size: 1rem;
     margin: 0; }
@@ -27,45 +63,30 @@ h6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem; }
 
-.sidebar {
-    position: fixed;
-    min-height: 100vh; 
-    top: 50px;
-    left: 0;
-    z-index: 1;
-    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1); 
-    padding: 1rem 0.5rem 0;
-}
-
-.sidebar.toggled {
-    width: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
 .navbar-nav .nav-link { padding: 0.5rem 1rem; }
 
-.navbar-brand { 
-    padding: 0.5rem 1rem;
-    color: rgba(255, 255, 255, 0.6);
-}
+.navbar-brand { padding: 0.5rem 1rem; }
 
 .divider {
     margin: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.5); }
 
-.dropdown-menu { 
-    font-size: 0.875rem;
-    min-width: 13rem; }
+.container-wrap { width: 100%; }
 
-.container-wrap {
-    margin-top: 50px;
-    width: 100%; }
+.content { position: relative; }
 
-.content {
-    position: relative;
-    padding-top: 25px;
-    padding-left: 14rem; }
+.update-date-time {
+    position: fixed;
+    top: 4%;
+    right: 20px;
+    color: rgba(255, 255, 255, 1);
+    z-index: 9999;
+    transform: translate(-10px, -100%); }
+
+.nav-top-fade-in + .update-date-time {
+    font-weight: 600;
+    color: rgba(86, 61, 124, 1);
+}
 
 /* Main */
 .location {
@@ -76,41 +97,68 @@ h6 {
     font-size: 0;
     line-height: 0;
     text-indent: -9999px;
-    overflow: hidden;
-}
+    overflow: hidden; }
 
-img {
-    width: 100%;
-}
+img { width: 100%; }
+
+.table tbody th { font-weight: 400; }
+
+.table tbody .week {
+    background-color: rgb(40, 48, 117);
+    color: #fff;
+    font-weight: 600; }
+
+.quarantine h6 { line-height: 1.5; }
+
+.list-inline-item a { color: rgb(40, 48, 117); }
 
 /* Footer */
 footer {
     z-index: 10;
-    line-height: 3;
+    line-height: 3; }
+
+@media screen and (max-width: 960px) {
+    .navbar-light .navbar-brand {
+        text-align: center;
+        display: block;
+        width: 100%;
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        left: 0;
+        top: 0%;
+        transform: translateY(40%);
+    }
+
+    .update-date-time {
+        font-size: 80%;
+        top: 0;
+        right: 0;
+        transform: translate(-20px, 100%); }
+
+    .navbar-light .navbar-toggler {
+        z-index: 99;
+    }
 }
 
 @media screen and (max-width: 768px) {
-    .sidebar {
-        width: 7rem;
+    h6, div, th, td { font-size: 80%; }
 
-        li {
-            text-align: center;
+    h3 { font-size: 1rem; }
 
-            a { font-size: 0.65rem; }
-        }    
+    .nav-responsive {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+
+        .nav-tabs { width: 310px; }
+    }
+
+    .table-responsive .table-bordered{
+        width: 700px;
+
+        th, td { padding: 0.5rem; }
     }
 
     .dropdown-menu { min-width: 6rem; }
-
-    .content { padding-left: 7rem; }
-
-    .content.toggled { padding-left: 0; }
-}
-
-@media screen and (max-width: 500px) {
-   
-}
-
-@media screen and (min-width: 768px) {
-    .sidebar { width: 14rem; }
 }
