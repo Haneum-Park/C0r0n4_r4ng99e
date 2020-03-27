@@ -1,0 +1,40 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light border-bottom navbar-bg border-bottom-0" id="navbar-top">
+    <h1 class="navbar-brand text-light font-weight-bold my-0"><%= controller.pageTitle %></h1>
+    <button class="navbar-toggler border border-light" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#infectedStatus" title="스크롤 이동"><h6>확진자 현황</h6></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#gwangjuStatus" title="스크롤 이동"><h6>광주 현황</h6></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#gwangjuPolicy" title="스크롤 이동"><h6>정책 정보</h6></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#quarantineStatus" title="스크롤 이동"><h6>방역 상황</h6></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#gwangjuPolicy" title="스크롤 이동"><h6>마스크 판매처</h6></a>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown">
+                    <a class="btn btn-link small dropdown-btn" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="네이버, 카카오 기부현황 스크롤 이동">
+                        <h6 class="d-inline-block">기부</h6> <i class="fa fa-angle-down"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" title="페이지 이동" href="https://happybean.naver.com/donations/H000000170759?redirectYN=N">네이버 해피빈</a>
+                        <a class="dropdown-item dropdown-link" title="스크롤 이동" href="#quarantineStatus">네이버 기부현황</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" title="페이지 이동" href="https://together.kakao.com/fundraisings/73839">카카오 같이가치</a>
+                        <a class="dropdown-item dropdown-link" title="스크롤 이동" href="#quarantineStatus">카카오 기부현황</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="update-date-time">Update : 3.26 00시</div>
