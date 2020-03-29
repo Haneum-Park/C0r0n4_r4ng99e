@@ -19,29 +19,28 @@ $(document).ready(function () {
     function navbarTop() {
         var navbar = $("#navbar-top");
 
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-            navbar.addClass("nav-top-fade-in");
+        if (document.body.scrollTop > 700 || document.documentElement.scrollTop > 700) {
+            $.fn.scrollStopped = function (callback) {
+                var that = this, $this = $(that);
+                $this.scroll(function (ev) {
+                    clearTimeout($this.data('scrollTimeout'));
+                    $this.data('scrollTimeout', setTimeout(callback.bind(that), 200, ev));
+                });
+            };
+
+            $(window).scrollStopped(function (ev) {
+                navbar.removeClass("nav-top-fade-in");
+                navbar.addClass("nav-top-fade-out");
+            });
             navbar.removeClass("nav-top-fade-out");
+            navbar.addClass("nav-top-fade-in");
+            navbar.addClass("fixed-top");
+            document.getElementsByClassName("navbar-top-display")[0].style.display = "block";
         } else {
             navbar.removeClass("nav-top-fade-in");
+            navbar.removeClass("fixed-top");
             navbar.addClass("nav-top-fade-out");
+            document.getElementsByClassName("navbar-top-display")[0].style.display = "none";
         }
     }
-});
-
-// document.addEventListener("DOMContentLoaded", function () {
-
-// });
-
-$.fn.scrollStopped = function (callback) {
-    var that = this, $this = $(that);
-    $this.scroll(function (ev) {
-        clearTimeout($this.data('scrollTimeout'));
-        $this.data('scrollTimeout', setTimeout(callback.bind(that), 200, ev));
-    });
-};
-
-$(window).scrollStopped(function (ev) {
-    $("#navbar-top").removeClass("nav-top-fade-in");
-    $("#navbar-top").addClass("nav-top-fade-out");
 });

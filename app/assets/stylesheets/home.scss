@@ -2,13 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-h6 { color: #dc3545; }
-
-.wrapper { display: flex; }
-
 .mt-6 { margin-top: 4rem; }
 
 .mt-7 { margin-top: 5rem; }
+
+.mt-18 { margin-top: 16rem; }
 
 .pointer { cursor: pointer; }
 
@@ -18,25 +16,63 @@ caption { caption-side: top; }
 
 caption.caption-side-bottom { caption-side: bottom; }
 
+.divider {
+    margin: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.125); }
+
+.divider-vertical {
+    border-right: 1px solid rgba(0, 0, 0, 0.125); }
+
 /* Navbar */
-nav.navbar-bg { background-color: rgba(86, 61, 124, 1); }
+.jumbotron { 
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+
+.jumbotron.top-banner {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    padding-top: 8rem;
+    padding-bottom: 12rem;
+}
+
+.container-top { position: relative; }
+
+nav.navbar-bg { background-color: rgba(42, 43, 38, 1); }
 
 nav.navbar-bg.nav-top-fade-in {
     background-color: rgba(86, 61, 124, 0);
     transition: background-color 0.5s;
 
-    .navbar-toggler.border.border-light { border-color: rgba(86, 61, 124, 1) !important; }
+    .navbar-toggler.border.border-light { border-color: rgba(42, 43, 38, 1) !important; }
 
     a:hover, a:hover h6, a:hover i {
-        background-color: rgba(86, 61, 124, 1) !important;
+        background-color: rgba(42, 43, 38, 1) !important;
         color: rgba(255, 255, 255, 1) !important; }
 
-    h1, a, h6, i { color: rgba(86, 61, 124, 1) !important; }
+    h1, a, h6, i { color: rgba(42, 43, 38, 1) !important; }
 }
 
+.nav-top-fade-in .navbar-top-display {
+    display: block;
+    color: rgba(42, 43, 38, 1); }
+
+.navbar-top-display,
+.navbar-top-display a { color: #fff; }
+
+.nav-top-fade-out .navbar-top-display,
+.nav-top-fade-out .navbar-top-display a { 
+    color: #fff; }
+
 nav.navbar-bg.nav-top-fade-out {
-    background-color: rgba(86, 61, 124, 1);
+    background-color: rgba(42, 43, 38, 1);
     transition: background-color 0.5s; }
+
+.navbar-top-display.order-change { order: 2; }
+
+.navbar-collapse.order-change { order: 1; }
 
 .navbar-light .navbar-toggler {
     background-color: rgba(255, 255, 255, 0.1);
@@ -67,26 +103,7 @@ h6 {
 
 .navbar-brand { padding: 0.5rem 1rem; }
 
-.divider {
-    margin: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.5); }
-
-.container-wrap { width: 100%; }
-
-.content { position: relative; }
-
-.update-date-time {
-    position: fixed;
-    top: 4%;
-    right: 20px;
-    color: rgba(255, 255, 255, 1);
-    z-index: 9999;
-    transform: translate(-10px, -100%); }
-
-.nav-top-fade-in + .update-date-time {
-    font-weight: 600;
-    color: rgba(86, 61, 124, 1);
-}
+.dropdown-btn { padding: 0.4rem 0.9rem; }
 
 /* Main */
 .location {
@@ -110,12 +127,20 @@ img { width: 100%; }
 
 .quarantine h6 { line-height: 1.5; }
 
-.list-inline-item a { color: rgb(40, 48, 117); }
-
 /* Footer */
 footer {
     z-index: 10;
     line-height: 3; }
+
+@media screen and (max-width: 1200px) {
+    .divider {
+        border-top: 0;
+    }
+    
+    .divider-vertical {
+        border-right: 0;
+        padding-bottom: 3rem; }
+}
 
 @media screen and (max-width: 960px) {
     .navbar-light .navbar-brand {
@@ -130,22 +155,14 @@ footer {
         transform: translateY(40%);
     }
 
-    .update-date-time {
-        font-size: 80%;
-        top: 0;
-        right: 0;
-        transform: translate(-20px, 100%); }
+    .navbar-light .navbar-toggler { z-index: 99; }
 
-    .navbar-light .navbar-toggler {
-        z-index: 99;
-    }
+    .navbar-top-display.order-change { order: 1; }
+
+    .navbar-collapse.order-change { order: 2; }
 }
 
 @media screen and (max-width: 768px) {
-    h6, div, th, td { font-size: 80%; }
-
-    h3 { font-size: 1rem; }
-
     .nav-responsive {
         display: block;
         width: 100%;
@@ -159,6 +176,22 @@ footer {
 
         th, td { padding: 0.5rem; }
     }
+}
 
-    .dropdown-menu { min-width: 6rem; }
+@media (min-width: 576px){
+    .jumbotron {
+        padding: 7rem 2rem;
+    }   
+}
+
+@media screen and (max-width: 475px) {
+    h1 { font-size: 2rem; }
+
+    .update-time {
+        font-size: 12px;
+    }
+
+    .navbar-top-display {
+        display: none !important;
+    }
 }
