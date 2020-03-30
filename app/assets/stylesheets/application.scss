@@ -3,6 +3,16 @@
 
 html, body {
     font-size: 0.9rem;
+    overflow-x: hidden;
+}
+
+ul, li {
+    list-style: none;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: none !important;
 }
 
 ul, li {
