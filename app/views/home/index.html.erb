@@ -1,91 +1,37 @@
 <%= stylesheet_link_tag 'home' %>
 
 <%= render 'shared/navbar' %>
+<div id="scroll-top">
+    <a href="#infectedStatus" class="text-dark"><i class="fa fa-angle-up"></i></a>
+</div>
 <div class="container mt-5 px-0">
 <!-- Main Content -->
     <!-- Gwangju Map -->
     <div class="location" id="gwangjuStatus"></div>
+    <!--
     <div class="card mb-4">
         <div class="card-header">
             <h6>국내 확진자 수 증가추이</h6>
         </div>
         <div class="card-body text-center">
-            <h6>한국 확진자 그래프가 들어갈곳</h6>
             <div class="card-text"></div>
         </div>
     </div>
+    -->
     <div class="card mb-4">
         <div class="card-header">
-            <h6>광주 현황</h6>
+            <h6>광주 확진자 이동경로 맵</h6>
         </div>
         <div class="card-body text-center">
-            <h6>광주 확진자 지도가 들어갈곳</h6>
-            <div class="card-text"></div>
-        </div>
-    </div>
-    <!-- Gwangju Policy -->
-    <div class="location" id="gwangjuPolicy"></div>
-    <div class="row">
-        <div class="col-xl-4 col-lg-12">
-            <div class="container mb-4 px-0">
-                <div class="text-center mt-3 mb-4">
-                    <h4>공지사항</h4>
-                </div>
-                <div class="container-fluid px-0">
-                    <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-4 col-lg-12">
-            <div class="card mb-4">
-                <div class="card-header d-flex d-flex-row-align-items-center justify-content-between">
-                    <h6>코로나 관련 긴급 지원사업</h6>
-                </div>
-                <div class="card-body text-center">
-                    <div class="card-text">
-                        <div class="container">
-                            <%= image_tag 'policy-1.jpg' %>
-                            <%= image_tag 'policy-2.jpg' %>
-                        </div>
-                        <div class="container mt-3" id="support_links">
-                            <a class="btn btn-light btn-block" href="https://blog.naver.com/dodreamgj/221868427852" target="_blank" title="새창으로 이동">긴급생계자금 지원사업</a>
-                            <a class="btn btn-light btn-block" href="https://www.gwangju.go.kr/contentsView.do?pageId=www453" target="_blank" title="새창으로 이동">광주광역시 복지 지원사업</a>
-                            <a class="btn btn-light btn-block" href="http://www.bizinfo.go.kr/see/seea/selectSEEA140Detail.do?menuId=80001001001&pblancId=PBLN_000000000051543" target="_blank" title="새창으로 이동">광주광역시 소상공인 지원사업</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-4 col-lg-12">
-            <div class="container mb-4 px-0">
-                <div class="text-center mt-3 mb-4">
-                    <h4>업데이트 현황</h4>
-                </div>
-                <div class="container-fluid px-0">
-                    <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                    </ul>
-                </div>
+            <div class="card-text">
+                <iframe src="https://www.gwangju.go.kr/api/coronamap.jsp" style="border:0;" name="ncov_map_all" scrolling="no" frameborder="0" height="1000px" width="100%"></iframe>
             </div>
         </div>
     </div>
     <!-- Mask Pharmacy -->
     <div class="location" id="maskPharmacy"></div>
     <div class="row">
+        <!--
         <div class="col-xl-4 col-lg-12">
             <div class="card mb-4">
                 <div class="card-header">
@@ -105,7 +51,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-8 col-lg-12">
+        -->
+        <div class="col-xl-12 col-lg-12">
             <div class="card mb-4">
                 <div class="card-header">
                     <h6>마스크 5부제</h6>
@@ -585,7 +532,66 @@
             </div>
         </div>
     </div>
+    <!-- Gwangju Policy -->
+    <div class="location" id="gwangjuPolicy"></div>
+    <div class="row">
+        <div class="col-xl-4 col-lg-12">
+            <div class="container mb-4 px-0">
+                <div class="text-center mt-3 mb-4">
+                    <h4>공지사항</h4>
+                </div>
+                <div class="container-fluid px-0">
+                    <ul class="list-group">
+                        <li class="list-group-item">사이트 오픈 예정일은 3월 31일입니다.</li>
+                        <li class="list-group-item">코로나 현황판은 정각마다 업데이트 됩니다.</li>
+                        <li class="list-group-item">광주 확진자 맵은 만들어질 때까지 광주광역시청의 코로나 확진자 맵으로 대체합니다.</li>
+                        <li class="list-group-item">코로나 현황은 KBS, 질병관리본부, 광주광역시청의 데이터를 토대로 만들어졌습니다.</li>
+                        <li class="list-group-item">크롬에 최적화된 페이지입니다.</li>
+                        <li class="list-group-item">모든 소스는 오픈되어 있습니다.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-12">
+            <div class="card mb-4">
+                <div class="card-header d-flex d-flex-row-align-items-center justify-content-between">
+                    <h6>광주 코로나 긴급지원정책</h6>
+                </div>
+                <div class="card-body text-center">
+                    <div class="card-text">
+                        <div class="container">
+                            <%= image_tag 'policy-1.jpg' %>
+                            <%= image_tag 'policy-2.jpg' %>
+                        </div>
+                        <div class="container mt-3" id="support_links">
+                            <a class="btn btn-light btn-block" href="https://blog.naver.com/dodreamgj/221868427852" target="_blank" title="새창으로 이동">긴급생계자금 지원사업</a>
+                            <a class="btn btn-light btn-block" href="https://www.gwangju.go.kr/contentsView.do?pageId=www453" target="_blank" title="새창으로 이동">광주광역시 복지 지원사업</a>
+                            <a class="btn btn-light btn-block" href="http://www.bizinfo.go.kr/see/seea/selectSEEA140Detail.do?menuId=80001001001&pblancId=PBLN_000000000051543" target="_blank" title="새창으로 이동">광주광역시 소상공인 지원사업</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-12">
+            <div class="container mb-4 px-0">
+                <div class="text-center mt-3 mb-4">
+                    <h4>업데이트 현황</h4>
+                </div>
+                <div class="container-fluid px-0">
+                    <ul class="list-group">
+                        <li class="list-group-item">3/30 국내 및 광주 코로나 현황 추가</li>
+                        <li class="list-group-item">3/30 광주 확진자 이동경로 맵 추가</li>
+                        <li class="list-group-item">3/27 공지사항 및 업데이트 항목 추가</li>
+                        <li class="list-group-item">3/27 전체 레이아웃 및 디자인 변경</li>
+                        <li class="list-group-item">3/26 광주 코로나 방역현황 추가</li>
+                        <li class="list-group-item">3/25 마스크 5부제 구매 방법 추가</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Donate Support -->
+    <!--
     <div class="location" id="donateSupport"></div>
     <div class="row">
         <div class="col-xl-6 col-lg-12">
@@ -611,8 +617,7 @@
             </div>
         </div>
     </div>
+    -->
 </div>
 <%= render 'shared/footer' %>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-
-<%= javascript_include_tag 'home' %>

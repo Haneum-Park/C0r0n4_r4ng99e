@@ -1,6 +1,7 @@
+$(".dropdown-btn").dropdown();
+
 document.addEventListener("DOMContentLoaded", function () {
     // Bootstrap jQuery functions
-    $(".dropdown-btn").dropdown();
 
     // Mask Pharmacy Date detect
     var date = new Date();
@@ -11,54 +12,52 @@ document.addEventListener("DOMContentLoaded", function () {
         today[i].classList.add("week");
     }
 
-    // Navbar, Dropdown link click Event for scroll location
+    // Navbar, Dropdown, page top link click Event for scroll location
     var link_location = document.querySelector(".navbar-nav");
     var nav_links = link_location.querySelectorAll(".nav-link");
     var dropdown_links = link_location.querySelectorAll(".dropdown-link");
+    var scroll_top = document.querySelector("#scroll-top");
 
-    function scrollMove(links_array) {
-        for (var j = 0; j < links_array.length; j++) {
-            links_array[j].addEventListener("click", function (e) {
-                e.preventDefault();
-                var hrefTarget = this.getAttribute("href");
-                var this_offset_height = document.querySelector(hrefTarget).offsetTop;
-                window.scrollTo({
-                    top: this_offset_height,
-                    behavior: "smooth"
-                });
-            }, false);
+    function scrollMove(links) {
+        links.addEventListener("click", function (e) {
+            e.preventDefault();
+            var hrefTarget = this.getAttribute("href");
+            var this_offset_height = document.querySelector(hrefTarget).offsetTop;
+            window.scrollTo({
+                top: this_offset_height,
+                behavior: "smooth"
+            });
+        }, false);
+    }
+
+    function scrollLocation(selector) {
+        if (selector == document.querySelector("#scroll-top")) {
+            scrollMove(selector.children[0]);
+        } else {
+            for (var j = 0; j < selector.length; j++) {
+                scrollMove(selector[j]);
+            }
         }
     }
 
-    scrollMove(nav_links);
-    scrollMove(dropdown_links);
+    scrollLocation(scroll_top);
+    scrollLocation(nav_links);
+    scrollLocation(dropdown_links);
 
     // Window size detect function
     var scroll_height = 700;
 
     function windowSize(window_size) {
-        if ((window_size) > 1200) {
-            scroll_height = 650;
-        }
-        else if ((window_size) > 960 && (window_size) <= 1200) {
-            scroll_height = 700;
-        }
-        else if ((window_size) > 768 && (window_size) <= 960) {
-            scroll_height = 800;
-        }
-        else if ((window_size) > 575 && (window_size) <= 768) {
-            scroll_height = 850;
-        }
-        else if ((window_size) <= 575) {
-            scroll_height = 1300;
-        }
+        if ((window_size) > 1200) { scroll_height = 650; }
+        else if ((window_size) > 960 && (window_size) <= 1200) { scroll_height = 700; }
+        else if ((window_size) > 768 && (window_size) <= 960) { scroll_height = 800; }
+        else if ((window_size) > 575 && (window_size) <= 768) { scroll_height = 850; }
+        else if ((window_size) <= 575) { scroll_height = 1300; }
     }
 
     windowSize(window.innerWidth || document.body.clientWidth);
 
-    window.onresize = function () {
-        windowSize(window.innerWidth || document.body.clientWidth);
-    };
+    window.onresize = function () { windowSize(window.innerWidth || document.body.clientWidth); };
 
     // Navbar Scroll animation Event
     function navbarTop() {
@@ -67,9 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (document.body.scrollTop > scroll_height || document.documentElement.scrollTop > scroll_height) {
             var timer = null;
             window.addEventListener('scroll', function () {
-                if (timer !== null) {
-                    clearTimeout(timer);
-                }
+                if (timer !== null) { clearTimeout(timer); }
                 timer = setTimeout(function () {
                     navbar.classList.remove("nav-top-fade-in");
                     navbar.classList.add("nav-top-fade-out");
@@ -78,13 +75,16 @@ document.addEventListener("DOMContentLoaded", function () {
             navbar.classList.remove("nav-top-fade-out");
             navbar.classList.add("nav-top-fade-in");
             navbar.classList.add("fixed-top");
+            scroll_top.classList.add("top-btn-display");
             document.getElementsByClassName("navbar-top-display")[0].style.display = "block";
         } else {
             navbar.classList.remove("nav-top-fade-in");
             navbar.classList.remove("fixed-top");
             navbar.classList.add("nav-top-fade-out");
+            scroll_top.classList.remove("top-btn-display");
             document.getElementsByClassName("navbar-top-display")[0].style.display = "none";
         }
     }
+
     window.onscroll = function () { navbarTop(); }
 });

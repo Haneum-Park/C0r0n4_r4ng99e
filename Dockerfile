@@ -13,7 +13,8 @@ RUN apt-get update -qq && apt-get install -y nodejs  \
 	libxslt-dev \
 	tzdata \
 	libmariadb-dev \
-	nodejs
+	nodejs \
+	subversion
 
 RUN gem install bundler && bundler config --global frozen 1
 
@@ -29,6 +30,10 @@ WORKDIR /app
 ENV RAILS_ENV production
 
 COPY package.json yarn.lock ./
+
+# 생성된 데이터 크롤링
+
+RUN svn export --force https://github.com/Caramella-kr/C0r0N4_Crawler.git/trunk/release ./app/assets/javascripts/release/
 
 RUN npm install yarn -g --force
 
