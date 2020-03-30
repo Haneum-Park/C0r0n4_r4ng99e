@@ -13,4 +13,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
-Rails.application.config.assets.precompile += %w( release/data_gwangju.js release/release_common.js)
+Rails.application.config.assets.precompile += %w( release/data_gwangju.js release/release_common.js release/data_mohw.js)
