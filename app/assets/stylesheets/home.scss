@@ -62,6 +62,10 @@ nav.navbar-bg.nav-top-fade-in {
 .navbar-top-display,
 .navbar-top-display a { color: #fff; }
 
+.nav-top-fade-out .navbar-top-display {
+    display: none;
+}
+
 .nav-top-fade-out .navbar-top-display,
 .nav-top-fade-out .navbar-top-display a { 
     color: #fff; }
