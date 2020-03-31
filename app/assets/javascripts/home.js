@@ -1,4 +1,7 @@
-$(".dropdown-btn").dropdown();
+$(document).ready(function () {
+    $(".dropdown-btn").dropdown();
+});
+
 
 document.addEventListener("DOMContentLoaded", function () {
     // Bootstrap jQuery functions

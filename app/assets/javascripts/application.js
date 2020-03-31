@@ -4,6 +4,5 @@
 //= require popper
 //= require bootstrap
 //= require_tree .
+//= require corona_data
 //= require home
-//= require jquery.counterup.min
-//= require counter
