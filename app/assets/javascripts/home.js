@@ -55,11 +55,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var scroll_height = 700;
 
     function windowSize(window_size) {
-        if ((window_size) > 1200) { scroll_height = 650; }
-        else if ((window_size) > 960 && (window_size) <= 1200) { scroll_height = 700; }
-        else if ((window_size) > 768 && (window_size) <= 960) { scroll_height = 800; }
-        else if ((window_size) > 575 && (window_size) <= 768) { scroll_height = 850; }
-        else if ((window_size) <= 575) { scroll_height = 1300; }
+        if ((window_size) > 1200) { scroll_height = 500; }
+        else if ((window_size) > 960 && (window_size) <= 1200) { scroll_height = 680; }
+        else if ((window_size) > 768 && (window_size) <= 960) { scroll_height = 685; }
+        else if ((window_size) > 575 && (window_size) <= 768) { scroll_height = 690; }
+        else if ((window_size) <= 575) { scroll_height = 1000; }
     }
 
     windowSize(window.innerWidth || document.body.clientWidth);

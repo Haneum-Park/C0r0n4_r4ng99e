@@ -31,8 +31,6 @@ function update_info() {
     for (var update_count = 0; update_count < last_update.length; update_count++) {
         last_update[update_count].textContent = this_month + "/" + this_day + " " + common_info["Last_Update"];
     }
-    console.log(last_update);
-
 }
 
 function crawlered_data() {
