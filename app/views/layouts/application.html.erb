@@ -18,16 +18,24 @@
 
 
   <title><%= controller.pageTitle %></title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-  <meta name='viewport' , content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name='viewport', content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="title" content="광주 코로나 현황판">
+    <meta name="description" content="코로나때문에 불안에 떠는 광주사람들을 위한 코로나 현황판">
+    <meta name="keywords" content="코로나, 광주, 광주광역시, 광주 코로나, 코로나 현황판, 광주 코로나 현황판, 기부, 기부하기, coronastatus, 코로나현황, 광주 방역현황, 마스크 5부제, 광주 확진자 맵, 확진자 이동경로 맵, 광주 확진자 이동경로, 광주 코로나 맵">
+    <meta name="copyright" content="2020 Copyright © (주)카라멜라 caramella Inc. caramella.kr">
+    <meta property="og:title" content="광주 코로나 현황판">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="코로나때문에 불안에 떠는 광주사람들을 위한 코로나 현황판">
+    <meta property="og:site_name" content="광주 코로나, 함께해요!">
+    <meta property="og:url" content="http://coronastatus.kr/">
+    <link rel="canonical" href="https://coronastatus.kr/">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', media: 'all' %>
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application' %>
-
-  <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
-  <%= javascript_include_tag 'jquery.counterup.min' %>
-</head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+  </head>
 
 <body>
   <%= yield %>

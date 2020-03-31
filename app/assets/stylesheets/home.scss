@@ -20,36 +20,47 @@ caption.caption-side-bottom { caption-side: bottom; }
     margin: 1rem;
     border-top: 1px solid rgba(0, 0, 0, 0.125); }
 
-.divider-vertical {
-    border-right: 1px solid rgba(0, 0, 0, 0.125); }
+.divider-vertical { border-right: 1px solid rgba(0, 0, 0, 0.125); }
+
+#scroll-top {
+    position: fixed;
+    width: 30px;
+    bottom: 30px;
+    right: 30px;
+    background-color: rgba(255, 255, 255, 0.125);
+    z-index: 99;
+    border-radius: 15px;
+    height: 30px;
+    border: 1px solid #fff;
+    box-shadow: 0px 1px 4px 0px;
+    text-align: center; 
+    font-size: 20px; }
 
 /* Navbar */
 .jumbotron { 
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover;
- }
+    background-size: cover; }
 
 .jumbotron.top-banner {
     position: absolute;
     width: 100%;
     top: 0;
     padding-top: 8rem;
-    padding-bottom: 12rem;
-}
+    padding-bottom: 12rem; }
 
 .container-top { position: relative; }
 
-nav.navbar-bg { background-color: rgba(42, 43, 38, 1); }
+nav.navbar-bg { background-color: rgba(42, 43, 38, 0.6); }
 
 nav.navbar-bg.nav-top-fade-in {
     background-color: rgba(86, 61, 124, 0);
     transition: background-color 0.5s;
 
-    .navbar-toggler.border.border-light { border-color: rgba(42, 43, 38, 1) !important; }
+    .navbar-toggler.border.border-light { border-color: rgba(42, 43, 38, 0.6) !important; }
 
     a:hover, a:hover h6, a:hover i {
-        background-color: rgba(42, 43, 38, 1) !important;
+        background-color: rgba(42, 43, 38, 0.6) !important;
         color: rgba(255, 255, 255, 1) !important; }
 
     h1, a, h6, i { color: rgba(42, 43, 38, 1) !important; }
@@ -62,16 +73,14 @@ nav.navbar-bg.nav-top-fade-in {
 .navbar-top-display,
 .navbar-top-display a { color: #fff; }
 
-.nav-top-fade-out .navbar-top-display {
-    display: none;
-}
+.nav-top-fade-out .navbar-top-display { display: none; }
 
 .nav-top-fade-out .navbar-top-display,
 .nav-top-fade-out .navbar-top-display a { 
     color: #fff; }
 
 nav.navbar-bg.nav-top-fade-out {
-    background-color: rgba(42, 43, 38, 1);
+    background-color: rgba(42, 43, 38, 0.6);
     transition: background-color 0.5s; }
 
 .navbar-top-display.order-change { order: 2; }
@@ -79,7 +88,7 @@ nav.navbar-bg.nav-top-fade-out {
 .navbar-collapse.order-change { order: 1; }
 
 .navbar-light .navbar-toggler {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.6);
     transition: background-color 0.3s; }
 
 .navbar-light .navbar-toggler:hover,
@@ -120,6 +129,11 @@ h6 {
     text-indent: -9999px;
     overflow: hidden; }
 
+.container-content {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 img { width: 100%; }
 
 .table tbody th { font-weight: 400; }
@@ -134,12 +148,20 @@ img { width: 100%; }
 /* Footer */
 footer {
     z-index: 10;
-    line-height: 3; }
+    line-height: 3; 
+
+    .list-inline {
+        .list-inline-item {
+            
+            .list-name {
+                color: #bdbdbd;
+            }
+        }
+    }
+}
 
 @media screen and (max-width: 1200px) {
-    .divider {
-        border-top: 0;
-    }
+    .divider { border-top: 0; }
     
     .divider-vertical {
         border-right: 0;
@@ -156,8 +178,7 @@ footer {
         margin: 0;
         left: 0;
         top: 0%;
-        transform: translateY(40%);
-    }
+        transform: translateY(40%); }
 
     .navbar-light .navbar-toggler { z-index: 99; }
 
@@ -182,20 +203,21 @@ footer {
     }
 }
 
+@media screen and (max-width: 575px) {
+    .container-content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
 @media (min-width: 576px){
-    .jumbotron {
-        padding: 7rem 2rem;
-    }   
+    .jumbotron { padding: 7rem 2rem; }
 }
 
 @media screen and (max-width: 475px) {
     h1 { font-size: 2rem; }
 
-    .update-time {
-        font-size: 12px;
-    }
+    .update-time { font-size: 12px; }
 
-    .navbar-top-display {
-        display: none !important;
-    }
+    .navbar-top-display { display: none !important; }
 }

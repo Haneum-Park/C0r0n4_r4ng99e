@@ -4,3 +4,5 @@
 //= require popper
 //= require bootstrap
 //= require_tree .
+//= require corona_data
+//= require home
