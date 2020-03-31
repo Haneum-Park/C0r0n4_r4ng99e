@@ -35,7 +35,11 @@ document.addEventListener("DOMContentLoaded", function () {
             scrollMove(selector.children[0]);
         } else {
             for (var j = 0; j < selector.length; j++) {
-                scrollMove(selector[j]);
+                if (j == 5) {
+                    return false;
+                } else {
+                    scrollMove(selector[j]);
+                }
             }
         }
     }

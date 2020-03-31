@@ -1,3 +1,4 @@
+<%= javascript_include_tag 'corona_data' %>
 <div class="jumbotron jumbotron-fluid top-banner" style="background-image: url(<%= asset_path 'hopkins.png' %>);">
     <div class="container text-center">
         <h1 class="text-light">코로나19, 도움닫기</h1>
@@ -81,8 +82,8 @@
     </div>
 </div>
 
-<nav class="navbar navbar-expand-lg navbar-light border-bottom navbar-bg border-bottom-0 nav-top-fade-out" id="navbar-top">
-    <button class="navbar-toggler border border-light" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light navbar-bg nav-top-fade-out" id="navbar-top">
+    <button class="navbar-toggler border border-light" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="text-right navbar-top-display order-change">
@@ -105,26 +106,22 @@
             <li class="nav-item">
                 <a class="nav-link" href="#maskPharmacy" title="스크롤 이동"><h6>마스크 5부제</h6></a>
             </li>
-            <li class="nav-item">
-                <div class="dropdown">
-                    <a class="btn btn-link small dropdown-btn" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="네이버, 카카오 기부현황 스크롤 이동">
-                        <h6 class="d-inline-block">기부</h6> <i class="fa fa-angle-down"></i>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" title="페이지 이동" href="https://happybean.naver.com/donations/H000000170759?redirectYN=N">네이버 해피빈</a>
-                        <!--
-                        <a class="dropdown-item dropdown-link" title="스크롤 이동" href="#donateSupport">네이버 기부현황</a>
-                        -->
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" title="페이지 이동" href="https://together.kakao.com/fundraisings/73839">카카오 같이가치</a>
-                        <!--
-                        <a class="dropdown-item dropdown-link" title="스크롤 이동" href="#donateSupport">카카오 기부현황</a>
-                        -->
-                    </div>
+            <li class="nav-item dropdown">
+                <a class="nav-link pointer small dropdown-btn" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="네이버, 카카오 기부현황 스크롤 이동">
+                    <h6 class="d-inline-block">기부</h6> <i class="fa fa-angle-down"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" title="페이지 이동" href="https://happybean.naver.com/donations/H000000170759?redirectYN=N" target="_blank" title="새창으로 이동">네이버 해피빈</a>
+                    <!--
+                    <a class="dropdown-item dropdown-link" title="스크롤 이동" href="#donateSupport">네이버 기부현황</a>
+                    -->
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" title="페이지 이동" href="https://together.kakao.com/fundraisings/73839" target="_blank" title="새창으로 이동">카카오 같이가치</a>
+                    <!--
+                    <a class="dropdown-item dropdown-link" title="스크롤 이동" href="#donateSupport">카카오 기부현황</a>
+                    -->
                 </div>
             </li>
         </ul>
     </div>
 </nav>
-<%= javascript_include_tag 'release/data_gwangju' %>
-<%= javascript_include_tag 'release/data_mohw' %>

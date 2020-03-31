@@ -129,6 +129,11 @@ h6 {
     text-indent: -9999px;
     overflow: hidden; }
 
+.container-content {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 img { width: 100%; }
 
 .table tbody th { font-weight: 400; }
@@ -143,7 +148,17 @@ img { width: 100%; }
 /* Footer */
 footer {
     z-index: 10;
-    line-height: 3; }
+    line-height: 3; 
+
+    .list-inline {
+        .list-inline-item {
+            
+            .list-name {
+                color: #bdbdbd;
+            }
+        }
+    }
+}
 
 @media screen and (max-width: 1200px) {
     .divider { border-top: 0; }
@@ -185,6 +200,13 @@ footer {
         width: 700px;
 
         th, td { padding: 0.5rem; }
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .container-content {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
 

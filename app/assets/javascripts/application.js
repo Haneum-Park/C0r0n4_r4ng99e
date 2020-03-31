@@ -4,3 +4,6 @@
 //= require popper
 //= require bootstrap
 //= require_tree .
+//= require home
+//= require jquery.counterup.min
+//= require counter
