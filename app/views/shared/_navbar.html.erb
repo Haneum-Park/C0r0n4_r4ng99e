@@ -1,61 +1,61 @@
 <div class="jumbotron jumbotron-fluid top-banner" style="background-image: url(<%= asset_path 'hopkins.png' %>);">
-    <div class="container text-center">
-        <h1 class="text-light">코로나19, 도움닫기</h1>
-    </div>
+  <div class="container text-center">
+    <h1 class="text-light">코로나19, 도움닫기</h1>
+  </div>
 </div>
 <div class="location" id="infectedStatus"></div>
 <div class="container-top">
-    <div class="container text-right text-light mt-18 px-0 update-time">
-        <%= render 'shared/update_time' %>
-    </div>
-    <div class="container text-center border shadow bg-light rounded mb-5">
-        <div class="container-fluid my-5">
-            <div class="row">
-                <div class="col-xl-6 col-lg-12 divider-vertical">
-                    <h3 class="my-4">국내 현황</h3>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <h6>확진자</h6>
-                            <div class="h3"><span id="korea_confirmed" class="counter"></span>명</div>
-                        </div>
-                        <div class="col-sm-3">
-                            <h6>격리자</h6>
-                            <div class="h3 text-info"><span id="korea_isolated" class="counter"></span>명</div>
-                        </div>
-                        <div class="col-sm-3">
-                            <h6>격리해제</h6>
-                            <div class="h3"><span id="korea_deisolated" class="counter"></span>명</div>
-                        </div>
-                        <div class="col-sm-3">
-                            <h6>사망자</h6>
-                            <div class="h3 text-danger"><span id="korea_deaths" class="counter"></span>명</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-12">
-                    <h3 class="my-4">광주 현황</h3>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <h6>확진자</h6>
-                            <div class="h3"><span id="gwangju_confirmed" class="counter"></span>명</div>
-                        </div>
-                        <div class="col-sm-3">
-                            <h6>격리자</h6>
-                            <div class="h3 text-info"><span id="gwangju_isolation" class="counter"></span>명</div>
-                        </div>
-                        <div class="col-sm-3">
-                            <h6>격리해제</h6>
-                            <div class="h3"><span id="gwangju_recovered" class="counter"></span>명</div>
-                        </div>
-                        <div class="col-sm-3">
-                            <h6>사망자</h6>
-                            <div class="h3 text-danger"><span id="gwangju_deaths" class="counter">0</span>명</div>
-                        </div>
-                    </div>
-                </div>
+  <div class="container text-right text-light mt-18 px-0 update-time">
+    <%= render 'shared/update_time' %>
+  </div>
+  <div class="container text-center border shadow bg-light rounded mb-5">
+    <div class="container-fluid my-5">
+      <div class="row">
+        <div class="col-xl-6 col-lg-12 divider-vertical">
+          <h3 class="my-4">국내 현황</h3>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6>확진자</h6>
+              <div class="h3"><span id="korea_confirmed" class="counter"><%= @mohwData["total_Confirmed"] %></span>명</div>
             </div>
+            <div class="col-sm-3">
+              <h6>격리자</h6>
+              <div class="h3 text-info"><span id="korea_isolated" class="counter"><%= @mohwData["total_Confirmed"].to_i - @mohwData["total_deisolated"].to_i %></span>명</div>
+            </div>
+            <div class="col-sm-3">
+              <h6>격리해제</h6>
+              <div class="h3"><span id="korea_deisolated" class="counter"><%= @mohwData["total_deisolated"] %></span>명</div>
+            </div>
+            <div class="col-sm-3">
+              <h6>사망자</h6>
+              <div class="h3 text-danger"><span id="korea_deaths" class="counter"><%= @mohwData["total_dead"] %></span>명</div>
+            </div>
+          </div>
         </div>
-        <!--
+        <div class="col-xl-6 col-lg-12">
+          <h3 class="my-4">광주 현황</h3>
+          <div class="row">
+            <div class="col-sm-3">
+              <h6>확진자</h6>
+              <div class="h3"><span id="gwangju_confirmed" class="counter"><%= @gwangjuData["Confirmed"] %></span>명</div>
+            </div>
+            <div class="col-sm-3">
+              <h6>격리자</h6>
+              <div class="h3 text-info"><span id="gwangju_isolation" class="counter"><%= @gwangjuData["Hospital_Isolation"].to_i + @gwangjuData["Facility_Isolation"].to_i + @gwangjuData["Self_Isolation"].to_i %></span>명</div>
+            </div>
+            <div class="col-sm-3">
+              <h6>격리해제</h6>
+              <div class="h3"><span id="gwangju_recovered" class="counter"><%= @gwangjuData["Finish_Self_Isolation"] %></span>명</div>
+            </div>
+            <div class="col-sm-3">
+              <h6>사망자</h6>
+              <div class="h3 text-danger"><span id="gwangju_deaths" class="counter">0</span>명</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--
         <div class="container-fluid my-5">
             <h3 class="my-4">세계 현황</h3>
             <div class="row">
@@ -78,49 +78,59 @@
             </div>
         </div>
         -->
-    </div>
+  </div>
 </div>
 
 <nav class="navbar navbar-expand-lg navbar-light navbar-bg nav-top-fade-out" id="navbar-top">
-    <button class="navbar-toggler border border-light" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="text-right navbar-top-display order-change">
-        <%= render 'shared/update_time' %>
-    </div>
-    <div class="collapse navbar-collapse order-change" id="navbarMenu">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#infectedStatus" title="스크롤 이동"><h6>확진자 현황</h6></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#gwangjuStatus" title="스크롤 이동"><h6>광주 현황</h6></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#gwangjuPolicy" title="스크롤 이동"><h6>정책 정보</h6></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#quarantineStatus" title="스크롤 이동"><h6>방역 상황</h6></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#maskPharmacy" title="스크롤 이동"><h6>마스크 5부제</h6></a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link pointer small dropdown-btn" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="네이버, 카카오 기부현황 스크롤 이동">
-                    <h6 class="d-inline-block">기부</h6> <i class="fa fa-angle-down"></i>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" title="페이지 이동" href="https://happybean.naver.com/donations/H000000170759?redirectYN=N" target="_blank" title="새창으로 이동">네이버 해피빈</a>
-                    <!--
+  <button class="navbar-toggler border border-light" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="text-right navbar-top-display order-change">
+    <%= render 'shared/update_time' %>
+  </div>
+  <div class="collapse navbar-collapse order-change" id="navbarMenu">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#infectedStatus" title="스크롤 이동">
+          <h6>확진자 현황</h6>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#gwangjuStatus" title="스크롤 이동">
+          <h6>광주 현황</h6>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#gwangjuPolicy" title="스크롤 이동">
+          <h6>정책 정보</h6>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#quarantineStatus" title="스크롤 이동">
+          <h6>방역 상황</h6>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#maskPharmacy" title="스크롤 이동">
+          <h6>마스크 5부제</h6>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link pointer small dropdown-btn" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="네이버, 카카오 기부현황 스크롤 이동">
+          <h6 class="d-inline-block">기부</h6> <i class="fa fa-angle-down"></i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" title="페이지 이동" href="https://happybean.naver.com/donations/H000000170759?redirectYN=N" target="_blank" title="새창으로 이동">네이버 해피빈</a>
+          <!--
                     <a class="dropdown-item dropdown-link" title="스크롤 이동" href="#donateSupport">네이버 기부현황</a>
                     -->
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" title="페이지 이동" href="https://together.kakao.com/fundraisings/73839" target="_blank" title="새창으로 이동">카카오 같이가치</a>
-                    <!--
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" title="페이지 이동" href="https://together.kakao.com/fundraisings/73839" target="_blank" title="새창으로 이동">카카오 같이가치</a>
+          <!--
                     <a class="dropdown-item dropdown-link" title="스크롤 이동" href="#donateSupport">카카오 기부현황</a>
                     -->
-                </div>
-            </li>
-        </ul>
-    </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </nav>
